@@ -1,0 +1,11 @@
+# example rule config
+
+groups:
+  - name: example
+    rules:
+    - record: job:prometheus_http_requests_total:sum
+      expr: sum by (job) (prometheus_http_requests_total)
+    - record: juanrules
+      expr: sum(up) 
+    # How often rules in the group are evaluated.
+    interval: 10s

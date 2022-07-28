@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - ./first_rules.yml:/etc/prometheus/first_rules.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+  cortex:
+    image: cortex:latest
+    ports:
+      - 9001:9009
+    volumes:
+      - ./cortex_config.yml:/etc/cortex/cortex_config.yml
+    command:
+      - '-config.file=/etc/cortex/cortex_config.yml'
+    
+  cortex_ruler:
+    image: cortex:latest
+    ports:
+      - 9002:9009
+    volumes:
+      - ./cortex_config_ruler.yml:/etc/cortex/cortex_config.yml
+      - ./first_rules.yml:/tmp/cortex/ruler/fake/first_rules.yml
+    command:
+      - '-config.file=/etc/cortex/cortex_config.yml'
+      
+  # memcached:
+  #   image: 'bitnami/memcached:latest'
+  #   ports:
+  #     - "11211:11211"
+
+  # memcached-exporter:
+  #   image: docker.io/bitnami/memcached-exporter:0
+  #   ports:
+  #     - 9150:9150
+  #   command:
+  #     - '--memcached.address=memcached:11211'
+
+ 
+

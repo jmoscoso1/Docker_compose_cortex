@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 1m
+
+# A list of scrape configurations.
+scrape_configs:
+  - job_name: grafana
+    static_configs:
+      - targets:
+        - grafana:3000
+  - job_name: prometheus
+    static_configs:
+      - targets:
+        - prometheus:9090
+  - job_name: cortex
+    static_configs:
+      - targets:
+        - cortex:9009
+  - job_name: cortex_ruler
+    static_configs:
+      - targets:
+        - cortex_ruler:9009
+    
+rule_files:
+   - "/etc/prometheus/first_rules.yml"
+  
+# Settings related to the remote write feature.
+remote_write:
+  - url: "http://cortex:9009/api/v1/push"
+
+  
