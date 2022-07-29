@@ -33,18 +33,5 @@ services:
       - ./first_rules.yml:/tmp/cortex/ruler/fake/first_rules.yml
     command:
       - '-config.file=/etc/cortex/cortex_config.yml'
-      
-  # memcached:
-  #   image: 'bitnami/memcached:latest'
-  #   ports:
-  #     - "11211:11211"
-
-  # memcached-exporter:
-  #   image: docker.io/bitnami/memcached-exporter:0
-  #   ports:
-  #     - 9150:9150
-  #   command:
-  #     - '--memcached.address=memcached:11211'
-
  
 

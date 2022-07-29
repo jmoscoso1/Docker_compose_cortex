@@ -70,11 +70,3 @@ alertmanager_storage:
   backend: filesystem
   filesystem:
     dir: /tmp/cortex/alertmanager/
-
-
-# ruler_storage:
-#   backend: local
-#   enable_api: true
-
-  # local:
-  #   directory: /tmp/cortex/ruler
