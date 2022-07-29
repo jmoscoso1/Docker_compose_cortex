@@ -33,5 +33,3 @@ services:
       - ./first_rules.yml:/tmp/cortex/ruler/fake/first_rules.yml
     command:
       - '-config.file=/etc/cortex/cortex_config.yml'
- 
-
