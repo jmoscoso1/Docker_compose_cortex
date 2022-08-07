@@ -1,6 +1,6 @@
 # Configuration for running Cortex in single-process mode.
 auth_enabled: false
-target: ruler-external
+target: ruler
 # target: <NAME_OF_THE_TARGET_FOR_RULER_EXTERNAL>
 
 server:

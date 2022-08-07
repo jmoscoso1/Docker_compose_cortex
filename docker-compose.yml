@@ -7,7 +7,6 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./first_rules.yml:/etc/prometheus/first_rules.yml
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -16,7 +15,7 @@ services:
     ports:
       - 3000:3000
   cortex:
-    image: cortex:latest
+    image: quay.io/cortexproject/cortex:latest
     ports:
       - 9001:9009
     volumes:

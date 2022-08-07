@@ -2,9 +2,6 @@ global:
   scrape_interval: 15s
   scrape_timeout: 10s
   evaluation_interval: 1m
-  # external label is added to avoid duplicated time series
-  external_labels:
-    cluster: prometheus
 
 # A list of scrape configurations.
 scrape_configs:
@@ -25,8 +22,6 @@ scrape_configs:
       - targets:
         - cortex_ruler:9009
     
-rule_files:
-   - "/etc/prometheus/first_rules.yml"
   
 # Settings related to the remote write feature.
 remote_write:
