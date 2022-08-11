@@ -13,18 +13,18 @@ scrape_configs:
     static_configs:
       - targets:
         - prometheus:9090
-  - job_name: cortex
+  - job_name: cortex1
     static_configs:
       - targets:
-        - cortex:9009
-  - job_name: cortex_ruler
+        - cortex1:9009
+  - job_name: cortex2
     static_configs:
       - targets:
-        - cortex_ruler:9009
+        - cortex2:9009
     
   
 # Settings related to the remote write feature.
 remote_write:
-  - url: "http://cortex:9009/api/v1/push"
+  - url: "http://cortex1:9009/api/v1/push"
 
   

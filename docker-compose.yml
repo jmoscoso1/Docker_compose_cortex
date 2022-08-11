@@ -14,7 +14,7 @@ services:
     image: grafana/grafana:latest
     ports:
       - 3000:3000
-  cortex:
+  cortex1:
     image: quay.io/cortexproject/cortex:latest
     ports:
       - 9001:9009
@@ -23,7 +23,7 @@ services:
     command:
       - '-config.file=/etc/cortex/cortex_config.yml'
     
-  cortex_ruler:
+  cortex2:
     image: cortex:latest
     ports:
       - 9002:9009
