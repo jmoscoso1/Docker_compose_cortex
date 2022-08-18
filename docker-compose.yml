@@ -15,7 +15,7 @@ services:
     ports:
       - 3000:3000
   cortex1:
-    image: quay.io/cortexproject/cortex:latest
+    image: quay.io/cortexproject/cortex:master-ef7a5f6
     ports:
       - 9001:9009
     volumes:
